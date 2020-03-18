@@ -145,7 +145,7 @@ static void *ScrollViewBoundsChangeNotificationContext = &ScrollViewBoundsChange
 }
 
 - (void)setupInitialImageFrame {
-    if (self.imageView.image && CGRectEqualToRect(self.initialImageFrame, CGRectNull)) {
+    if (self.imageView.image && (CGRectEqualToRect(self.initialImageFrame, CGRectNull) || CGRectEqualToRect(self.initialImageFrame, self.imageView.frame))) {
         CGSize imageViewSize = [self rectSizeForAspectRatio:self.imageAspectRatio
                                                thatFitsSize:self.bounds.size];
         self.initialImageFrame = CGRectMake(0, 0, imageViewSize.width, imageViewSize.height);
